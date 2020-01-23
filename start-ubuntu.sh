@@ -4,19 +4,13 @@ PPA_LIBRATBAG="ppa:libratbag-piper/piper-libratbag-git"
 PPA_LUTRIS="ppa:lutris-team/lutris"
 PPA_GRAPHICS_DRIVERS="ppa:graphics-drivers/ppa"
 PPA_GIT="ppa:git-core/ppa"
-
-
-## Removendo travas eventuais do apt ##
-
-sudo rm /var/lib/dpkg/lock-frontend
-sudo rm /var/cache/apt/archives/lock
-
-sudo apt update -y && sudo apt upgrade -y
+PPA_ORACLE13_JDK="ppa:linuxuprising/java"
 
 sudo apt-add-repository "$PPA_LIBRATBAG" -y
 sudo add-apt-repository "$PPA_LUTRIS" -y
 sudo apt-add-repository "$PPA_GRAPHICS_DRIVERS" -y
 sudo apt-add-repository "$PPA_GIT" -y
+sudo apt-add-repository "$PPA_ORACLE13_JDK" -y
 
 PROGRAMAS_PARA_INSTALAR=(
   snapd 
@@ -30,27 +24,19 @@ PROGRAMAS_PARA_INSTALAR=(
   vlc
   firefox
   gimp
+  ubuntu-restricted-extras
+  flatpak
+  gnome-software-plugin-flatpak
+  synaptic
+  oracle-java13-set-default
+  openjdk-8-jdk
   )
 
-sudo apt-get install -y  --no-install-recommends \
-                        ubuntu-restricted-extras \
-                        flatpak \
-                        gnome-software-plugin-flatpak \
-                        synaptic \
-                        gnome-software-plugin-flatpak \              
-
-
-
-
+sudo apt update -y && sudo apt upgrade -y
 
 # Instalar programas no apt
 for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  if ! dpkg -s  $nome_do_programa; then # Só instala se já não estiver instalado
-    echo "=== === INSTALANDO  $nome_do_programa"
     sudo apt install "$nome_do_programa" -y
-  else
-    echo "[INSTALADO] - $nome_do_programa"
-  fi
 done
 
 
