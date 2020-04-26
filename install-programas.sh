@@ -1,34 +1,49 @@
 #!/bin/bash
 
+sudo add-apt-repository ppa:git-core/ppa 
+sudo apt update
 
 PROGRAMAS_PARA_INSTALAR=(
-  snapd 
-  virtualbox
   git
   p7zip-full
   curl
-  python3
-  python-pip
-  python3-distutils-extra
-  vlc
-  firefox
-  gimp
+  python3.8
+  gnome-tweaks
+  gnome-shell-extensions
+  dconf-editor
   ubuntu-restricted-extras
   flatpak
-  gnome-software-plugin-flatpak
-  synaptic
-  oracle-java13-set-default
-  openjdk-8-jdk
+  steam-installer
   )
 
 sudo apt update -y && sudo apt upgrade -y
 
 # Instalar programas no apt
 for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
-  if ! dpkg -l  $nome_do_programa; then # Só instala se já não estiver instalado
-    echo "=== === INSTALANDO  $nome_do_programa"
-   # sudo apt install "$nome_do_programa" -y
-  else
-    echo "[INSTALADO] - $nome_do_programa"
-  fi
+    sudo apt install "$nome_do_programa" -y
 done
+
+PROGRAMAS_PARA_INSTALAR=(
+  spotify
+  gimp
+  inkscape
+  krita
+  )
+
+sudo apt update -y && sudo apt upgrade -y
+
+# Instalar programas no apt
+for nome_do_programa in ${PROGRAMAS_PARA_INSTALAR[@]}; do
+    sudo snap install "$nome_do_programa"
+done
+
+sudo snap install  pycharm-community --classic
+sudo snap install  intellij-idea-community --classic
+sudo snap install  code --classic
+sudo snap install  skype --classic
+  
+## Finalização, atualização e limpeza##
+sudo apt update && sudo apt dist-upgrade -y
+flatpak update
+sudo apt autoclean
+sudo apt autoremove -y
