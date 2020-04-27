@@ -14,6 +14,8 @@ PROGRAMAS_PARA_INSTALAR=(
   ubuntu-restricted-extras
   flatpak
   steam-installer
+  wget 
+  unzip
   )
 
 sudo apt update -y && sudo apt upgrade -y
