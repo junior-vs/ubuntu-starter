@@ -16,6 +16,8 @@ PROGRAMAS_PARA_INSTALAR=(
   steam-installer
   wget 
   unzip
+  virtualbox
+  vagrant
   )
 
 sudo apt update -y && sudo apt upgrade -y
