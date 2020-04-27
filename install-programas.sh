@@ -18,6 +18,7 @@ PROGRAMAS_PARA_INSTALAR=(
   unzip
   virtualbox
   vagrant
+  gedit
   )
 
 sudo apt update -y && sudo apt upgrade -y
@@ -29,9 +30,6 @@ done
 
 PROGRAMAS_PARA_INSTALAR=(
   spotify
-  gimp
-  inkscape
-  krita
   )
 
 sudo apt update -y && sudo apt upgrade -y
