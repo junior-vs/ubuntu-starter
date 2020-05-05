@@ -1,0 +1,14 @@
+ESLint
+Prettier Formatter 
+IntelliCode
+vscode-icons
+GitLens
+Docker
+YAML
+HTML
+Path Intellisense
+Bracket Pair Colorizer2
+TSLint
+Angular Language Service
+Angular TypeScript Snippets for VS Code
+Markdown All in

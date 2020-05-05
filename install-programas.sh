@@ -19,6 +19,7 @@ PROGRAMAS_PARA_INSTALAR=(
   virtualbox
   vagrant
   gedit
+  postgresql-client
   )
 
 sudo apt update -y && sudo apt upgrade -y
